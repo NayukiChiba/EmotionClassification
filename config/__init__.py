@@ -7,6 +7,8 @@ from paths import (
     STOPWORDS_PATH,
 )
 
+from config.default import DataParams, DefaultParams, ModelParams, TrainingParams
+
 __all__ = [
     "FIGURES_DIR",
     "STOPWORDS_PATH",
@@ -14,4 +16,8 @@ __all__ = [
     "PROCESSED_DATASETS_PATH",
     "BEST_MODEL_PATH",
     "LAST_MODEL_PATH",
+    "DataParams",
+    "ModelParams",
+    "TrainingParams",
+    "DefaultParams",
 ]
