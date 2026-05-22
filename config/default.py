@@ -8,19 +8,46 @@ class DefaultParams:
 
 
 class DataParams:
-    # 最长序列长度
+    """数据预处理参数（固定常量，通过类属性直接访问）"""
+
+    # 数据集名称
+    NAME = "JDfull"
+
+    # 文本列名
+    TEXT_COLUMN = "text"
+
+    # 标签列名
+    LABEL_COLUMN = "label"
+
+    # 文件格式: csv 或 json
+    FILE_FORMAT = "csv"
+
+    # 文件编码
+    ENCODING = "utf-8"
+
+    # 序列最大长度 (超过则截断，不足则填充)
     MAX_SEQ_LENGTH = 128
 
-    # 最小频率
+    # 词表构建的最小词频 (出现次数低于此值的词将被过滤)
     MIN_FREQ = 3
 
-    # 是否移除停用词
+    # 是否在分词时移除停用词
     REMOVE_STOPWORDS = True
 
-    # 训练集, 验证集, 测试集的比例
+    # 训练集比例
     TRAIN_RATIO = 0.7
+
+    # 验证集比例
     VALID_RATIO = 0.2
+
+    # 测试集比例
     TEST_RATIO = 0.1
+
+    # 负面标签值
+    NEGATIVE_LABEL = 0
+
+    # 正面标签值
+    POSITIVE_LABEL = 1
 
 
 class ModelParams:
