@@ -19,6 +19,7 @@ MODELS_DIR = get_dir(OUTPUTS_DIR / "models")
 LOGS_DIR = get_dir(OUTPUTS_DIR / "logs")
 CHECKPOINTS_DIR = get_dir(OUTPUTS_DIR / "checkpoints")
 FIGURES_DIR = get_dir(OUTPUTS_DIR / "figures")
+TENSORBOARD_DIR = get_dir(OUTPUTS_DIR / "tensorboard")
 
 STOPWORDS_PATH = DATASETS_DIR / "stopwords.txt"
 RAW_DATASETS_PATH = RAW_DATASETS_DIR / "online_shopping_10_cats.csv"

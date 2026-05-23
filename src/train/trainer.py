@@ -23,6 +23,7 @@ from config.paths import BEST_MODEL_PATH, LAST_MODEL_PATH
 from src.data.mapping import VocabMapping
 from src.train.checkpoint import save_checkpoint
 from src.train.early_stopping import EarlyStopping
+from src.train.logger import Logger
 
 
 class Trainer:
@@ -71,6 +72,7 @@ class Trainer:
         self.device = device
         self.epochs = epochs
         self.gradient_clip_value = gradient_clip_value
+        self.logger = Logger()
 
         # 训练历史记录
         self.history: Dict[str, List[float]] = {
@@ -186,6 +188,7 @@ class Trainer:
             history: 包含 train_loss、train_accuracy、valid_loss、valid_accuracy 的字典
         """
         print(f"开始训练: epochs={self.epochs}, device={self.device}")
+        self.logger.start()
         start_time = time.time()
 
         for epoch in range(self.epochs):
@@ -208,6 +211,18 @@ class Trainer:
                 f"train_loss: {train_loss:.4f}, train_acc: {train_accuracy:.4f}, "
                 f"valid_loss: {valid_loss:.4f}, valid_acc: {valid_accuracy:.4f}, "
                 f"lr: {current_lr:.6f}"
+            )
+
+            # 日志记录（TensorBoard）
+            self.logger.log(
+                metrics={
+                    "[Train] Loss": train_loss,
+                    "[Train] Acc": train_accuracy,
+                    "[Valid] Loss": valid_loss,
+                    "[Valid] Acc": valid_accuracy,
+                    "[Train] LR": current_lr,
+                },
+                step=epoch,
             )
 
             # 保存 checkpoint
@@ -248,4 +263,5 @@ class Trainer:
             f"最佳验证损失: {self.best_valid_loss:.4f}"
         )
 
+        self.logger.close()
         return self.history

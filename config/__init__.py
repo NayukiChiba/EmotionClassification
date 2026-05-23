@@ -20,6 +20,7 @@ from config.paths import (
     RAW_DATASETS_PATH,
     ROOT,
     STOPWORDS_PATH,
+    TENSORBOARD_DIR,
 )
 
 __all__ = [
@@ -43,4 +44,5 @@ __all__ = [
     "ModelParams",
     "TrainingParams",
     "DefaultParams",
+    "TENSORBOARD_DIR",
 ]
