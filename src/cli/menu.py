@@ -34,8 +34,8 @@ def run_train(args: argparse.Namespace):
         args: 解析后的命令行参数
     """
     # 初始化
-    set_seed(42)
-    device = get_device("cuda")
+    set_seed()
+    device = get_device()
     print(f"设备: {device}")
 
     # 数据预处理
@@ -102,7 +102,7 @@ def run_eval(args: argparse.Namespace):
     Args:
         args: 解析后的命令行参数
     """
-    device = get_device("cuda")
+    device = get_device()
     print(f"设备: {device}")
 
     # 数据加载
@@ -147,7 +147,7 @@ def run_predict(args: argparse.Namespace):
     Args:
         args: 解析后的命令行参数
     """
-    device = get_device("cuda")
+    device = get_device()
     checkpoint_path = Path(args.checkpoint)
 
     predictor = Predictor.from_checkpoint(checkpoint_path, device)

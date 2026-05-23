@@ -5,6 +5,7 @@ import torch
 
 class DefaultParams:
     DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+    SEED = 42
 
 
 class DataParams:

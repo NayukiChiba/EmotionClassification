@@ -7,6 +7,8 @@ CLI 参数解析模块
 
 import argparse
 
+from config.default import ModelParams, TrainingParams
+
 
 def build_parser() -> argparse.ArgumentParser:
     """
@@ -38,27 +40,27 @@ def build_parser() -> argparse.ArgumentParser:
     train_parser.add_argument(
         "--model",
         type=str,
-        default="lstm",
+        default=ModelParams.MODEL_TYPE.lower(),
         choices=["rnn", "lstm", "gru"],
-        help="模型类型 (默认: lstm)",
+        help="模型类型 (默认: %(default)s)",
     )
     train_parser.add_argument(
         "--epochs",
         type=int,
-        default=50,
-        help="训练轮数 (默认: 50)",
+        default=TrainingParams.EPOCHS,
+        help="训练轮数 (默认: %(default)s)",
     )
     train_parser.add_argument(
         "--batch_size",
         type=int,
-        default=64,
-        help="批大小 (默认: 64)",
+        default=TrainingParams.BATCH_SIZE,
+        help="批大小 (默认: %(default)s)",
     )
     train_parser.add_argument(
         "--learning_rate",
         type=float,
-        default=1e-3,
-        help="学习率 (默认: 1e-3)",
+        default=TrainingParams.LEARNING_RATE,
+        help="学习率 (默认: %(default)s)",
     )
     train_parser.add_argument(
         "--resume",
@@ -84,8 +86,8 @@ def build_parser() -> argparse.ArgumentParser:
     eval_parser.add_argument(
         "--batch_size",
         type=int,
-        default=64,
-        help="批大小 (默认: 64)",
+        default=TrainingParams.BATCH_SIZE,
+        help="批大小 (默认: %(default)s)",
     )
 
     # -------- predict 子命令 --------

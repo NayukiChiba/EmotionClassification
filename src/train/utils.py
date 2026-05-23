@@ -11,8 +11,10 @@ import numpy as np
 import torch
 import torch.nn as nn
 
+from config.default import DefaultParams
 
-def set_seed(seed: int) -> None:
+
+def set_seed(seed: int = DefaultParams.SEED) -> None:
     """
     设置全局随机种子，确保实验可复现
 
@@ -30,7 +32,7 @@ def set_seed(seed: int) -> None:
     torch.backends.cudnn.benchmark = False
 
 
-def get_device(device_string: str) -> torch.device:
+def get_device(device_string: str = DefaultParams.DEVICE) -> torch.device:
     """
     解析设备字符串并返回对应的 torch.device 对象
 
