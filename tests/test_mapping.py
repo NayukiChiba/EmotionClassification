@@ -42,7 +42,7 @@ class TestVocabMapping:
         assert vocab.unk_index == 1
 
     def test_to_dict_from_dict_roundtrip(self):
-        """测试 to_dict → from_dict 序列化往返"""
+        """测试 to_dict -> from_dict 序列化往返"""
         vocab = self.build_sample_vocab()
         data = vocab.to_dict()
         restored = VocabMapping.from_dict(data)
@@ -53,7 +53,7 @@ class TestVocabMapping:
         assert restored.index_to_word == vocab.index_to_word
 
     def test_save_load_roundtrip(self):
-        """测试 save → load JSON 持久化往返"""
+        """测试 save -> load JSON 持久化往返"""
         vocab = self.build_sample_vocab()
 
         with tempfile.NamedTemporaryFile(

@@ -42,7 +42,7 @@ class SentimentDataset(Dataset):
         """
         self.input_ids = input_ids
         self.masks = masks
-        self.labels = labels.float().unsqueeze(1)  # (N,) → (N, 1)
+        self.labels = labels.float().unsqueeze(1)  # (N,) -> (N, 1)
 
     def __getitem__(
         self, index: int

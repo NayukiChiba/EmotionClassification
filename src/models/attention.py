@@ -14,7 +14,7 @@ class Attention(nn.Module):
     """
     Bahdanau 加性注意力层
 
-    通过一个可学习的得分网络（Linear → Tanh → Linear）为每个时刻
+    通过一个可学习的得分网络（Linear -> Tanh -> Linear）为每个时刻
     的隐藏状态打分，经过 softmax 归一化后对隐藏状态加权求和。
     PAD 位置的得分被设为极小值 (-1e9)，使其权重趋近于 0。
 

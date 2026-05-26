@@ -1,7 +1,7 @@
 """
 RNN 模型抽象基类模块
 
-定义 BaseRNN 抽象基类，封装 Embedding → Dropout → RNN → Attention → Classifier 的
+定义 BaseRNN 抽象基类，封装 Embedding -> Dropout -> RNN -> Attention -> Classifier 的
 统一前向流程。子类只需实现 _build_rnn() 方法即可得到特定类型的 RNN 模型。
 """
 
@@ -17,7 +17,7 @@ class BaseRNN(nn.Module):
     """
     RNN 模型抽象基类
 
-    架构: Embedding → Dropout → RNN → [Attention | Last Valid Step] → Dropout → Linear → Sigmoid
+    架构: Embedding -> Dropout -> RNN -> [Attention | Last Valid Step] -> Dropout -> Linear -> Sigmoid
 
     支持 LSTM / RNN / GRU 三种类型切换，支持双向和 Attention 可选。
 
@@ -106,7 +106,7 @@ class BaseRNN(nn.Module):
             else:
                 context = rnn_output[:, -1, :]
 
-        # Dropout → Linear → Sigmoid
+        # Dropout -> Linear -> Sigmoid
         context = self.dropout(context)
         logits = self.classifier(context)
         output = self.sigmoid(logits)

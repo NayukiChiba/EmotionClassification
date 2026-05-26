@@ -181,7 +181,7 @@ class Trainer:
         """
         执行完整训练流程
 
-        每个 epoch 依次执行训练→验证→学习率调整→checkpoint 保存→早停检查。
+        每个 epoch 依次执行训练->验证->学习率调整->checkpoint 保存->早停检查。
         训练过程中同时保存最佳模型（best_model.pth）和最新模型（last_model.pth）。
 
         Returns:

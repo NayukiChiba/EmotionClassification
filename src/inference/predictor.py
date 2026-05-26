@@ -84,7 +84,7 @@ class Predictor:
 
     def _preprocess(self, text: str) -> Tuple[torch.Tensor, torch.Tensor]:
         """
-        对单条文本执行预处理（分词 → 编码 → 填充 → 生成掩码）
+        对单条文本执行预处理（分词 -> 编码 -> 填充 -> 生成掩码）
 
         Args:
             text: 原始文本字符串
@@ -97,7 +97,7 @@ class Predictor:
         words = jieba.lcut(text)
         words = [word.strip() for word in words if word.strip()]
 
-        # 编码（OOV → UNK）
+        # 编码（OOV -> UNK）
         sequence = [self.vocabulary.word_to_index.get(word, 1) for word in words]
 
         # 填充/截断
@@ -156,7 +156,7 @@ class Predictor:
         """
         对 CSV 文件中的文本列进行批量推理
 
-        读取 CSV → 逐行推理 → 追加 pred_label / confidence / label_name → 写入输出文件
+        读取 CSV -> 逐行推理 -> 追加 pred_label / confidence / label_name -> 写入输出文件
 
         Args:
             input_csv: 输入 CSV 文件路径

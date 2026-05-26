@@ -28,7 +28,7 @@ def run_train(args: argparse.Namespace):
     """
     执行模型训练
 
-    流程: 数据加载 → 模型构建 → 训练器初始化 → 训练循环
+    流程: 数据加载 -> 模型构建 -> 训练器初始化 -> 训练循环
 
     Args:
         args: 解析后的命令行参数
@@ -97,7 +97,7 @@ def run_eval(args: argparse.Namespace):
     """
     执行模型评估
 
-    流程: 加载 checkpoint → 加载/缓存数据 → 评估
+    流程: 加载 checkpoint -> 加载/缓存数据 -> 评估
 
     Args:
         args: 解析后的命令行参数
@@ -142,7 +142,7 @@ def run_predict(args: argparse.Namespace):
     """
     执行推理预测
 
-    流程: 加载 checkpoint → 单条/批量/文件推理
+    流程: 加载 checkpoint -> 单条/批量/文件推理
 
     Args:
         args: 解析后的命令行参数

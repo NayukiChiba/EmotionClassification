@@ -18,8 +18,8 @@ class VocabMapping:
     提供词表大小、填充索引和未知词索引的便捷属性。
 
     Attributes:
-        word_to_index: 词 → 索引 的映射字典
-        index_to_word: 索引 → 词 的映射字典
+        word_to_index: 词 -> 索引 的映射字典
+        index_to_word: 索引 -> 词 的映射字典
     """
 
     def __init__(self, word_to_index: Dict[str, int], index_to_word: Dict[int, str]):

@@ -41,10 +41,10 @@ class TestEarlyStopping:
 
         # 基线
         early_stopping(0.5)
-        # 改善幅度小于 min_delta → 视为未改善
+        # 改善幅度小于 min_delta -> 视为未改善
         assert not early_stopping(0.495)
         assert early_stopping.counter == 1
-        # 改善幅度大于 min_delta → 重置计数器
+        # 改善幅度大于 min_delta -> 重置计数器
         assert not early_stopping(0.48)
         assert early_stopping.counter == 0
 
@@ -56,7 +56,7 @@ class TestEarlyStopping:
         # 恶化
         early_stopping(0.55)  # counter=1
         early_stopping(0.54)  # counter=2
-        # 显著改善 → 重置
+        # 显著改善 -> 重置
         early_stopping(0.40)  # counter=0
         assert early_stopping.counter == 0
         assert early_stopping.best_score == 0.40

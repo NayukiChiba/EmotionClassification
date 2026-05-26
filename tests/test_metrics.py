@@ -38,7 +38,7 @@ class TestMetrics:
         assert report.precision == 0.0
         assert report.recall == 0.0
         assert report.f1_score == 0.0
-        # AUC：正类概率全 0、负类概率全 1 → 预测方向完全反转 → AUC = 0.0
+        # AUC：正类概率全 0、负类概率全 1 -> 预测方向完全反转 -> AUC = 0.0
         assert report.auc == 0.0
 
     def test_balanced_random_predictions(self):
@@ -87,7 +87,7 @@ class TestMetrics:
 
         # 全负预测下，准确率 = 负类占比 = 5/8
         assert report.accuracy == 5 / 8
-        # precision = TP/(TP+FP) = 0/0 → zero_division=0
+        # precision = TP/(TP+FP) = 0/0 -> zero_division=0
         assert report.precision == 0.0
         # recall = TP/(TP+FN) = 0/3 = 0.0
         assert report.recall == 0.0
@@ -95,7 +95,7 @@ class TestMetrics:
 
     def test_auc_binary_extremes(self):
         """测试 AUC 在二分类极端条件的边界值"""
-        # 正类概率 > 负类概率 → 完美排序
+        # 正类概率 > 负类概率 -> 完美排序
         y_true = np.array([1, 1, 0, 0])
         y_prob_perfect = np.array([0.9, 0.8, 0.3, 0.2])
         report = compute_metrics(
@@ -103,7 +103,7 @@ class TestMetrics:
         )
         assert report.auc == 1.0
 
-        # 正类概率 < 负类概率 → 完全反转
+        # 正类概率 < 负类概率 -> 完全反转
         y_prob_reversed = np.array([0.1, 0.2, 0.8, 0.9])
         report = compute_metrics(
             y_true, (y_prob_reversed >= 0.5).astype(int), y_prob_reversed

@@ -12,7 +12,7 @@ class SimpleRNN(BaseRNN):
     标准 RNN 模型
 
     使用 nn.RNN 作为序列编码器，继承 BaseRNN 的完整前向流程：
-    Embedding → Dropout → RNN → [Attention | Last Step] → Classifier → Sigmoid
+    Embedding -> Dropout -> RNN -> [Attention | Last Step] -> Classifier -> Sigmoid
     """
 
     def __init__(self, **kwargs):

@@ -12,7 +12,7 @@ class GRU(BaseRNN):
     GRU 模型
 
     使用 nn.GRU 作为序列编码器，继承 BaseRNN 的完整前向流程：
-    Embedding → Dropout → GRU → [Attention | Last Step] → Classifier → Sigmoid
+    Embedding -> Dropout -> GRU -> [Attention | Last Step] -> Classifier -> Sigmoid
 
     GRU 是 LSTM 的简化变体，将遗忘门和输入门合并为更新门，
     参数更少，训练更快，效果与 LSTM 接近。

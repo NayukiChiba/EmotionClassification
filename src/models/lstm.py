@@ -12,7 +12,7 @@ class LSTM(BaseRNN):
     LSTM 模型
 
     使用 nn.LSTM 作为序列编码器，继承 BaseRNN 的完整前向流程：
-    Embedding → Dropout → LSTM → [Attention | Last Step] → Classifier → Sigmoid
+    Embedding -> Dropout -> LSTM -> [Attention | Last Step] -> Classifier -> Sigmoid
 
     LSTM 相比 RNN 引入了输入门、遗忘门和输出门机制，
     能够更好地捕捉长距离依赖关系。

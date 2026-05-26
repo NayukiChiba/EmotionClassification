@@ -2,7 +2,7 @@
 数据预处理管线模块
 
 提供 DataProcessor 类，封装从原始数据文件到模型就绪数据的完整 7 步预处理流程：
-读取 → 分词 → 构建词表 → 编码 → 填充/截断 → 生成掩码 → 数据集划分。
+读取 -> 分词 -> 构建词表 -> 编码 -> 填充/截断 -> 生成掩码 -> 数据集划分。
 
 支持管线缓存，避免重复处理。
 """
@@ -177,7 +177,7 @@ class DataProcessor:
         print(f"词表大小: {len(word_to_index)} (minimum_frequency={minimum_frequency})")
         return VocabMapping(word_to_index, index_to_word)
 
-    # ---------- Step 4: 文本 → 索引序列 ----------
+    # ---------- Step 4: 文本 -> 索引序列 ----------
     def encode(
         self, tokenized_texts: List[List[str]], word_to_index: Dict[str, int]
     ) -> List[List[int]]:
